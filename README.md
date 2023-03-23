@@ -2,17 +2,33 @@
 This script uses the Spotify API to generate a new playlist based on the user's recent Spotify listening history. The program allows the user to choose up to 10 tracks they recently listened to and then select up to five of these tracks as the "seed" for the new playlist. The program then generates a new playlist with recommended tracks based on the seed tracks.
 
 ## Prerequisites
-Python 3
-A Spotify Developer account (for access to the Spotify API)
+- Python 3
+- A Spotify Developer account (for access to the Spotify API)
 
 ## Setup
-Clone the repository.
-Create a virtual environment and activate it.
-Install the required packages using the following command: pip install -r requirements.txt.
-Create an application on the Spotify Developer Dashboard to obtain a client ID and a client secret.
-Once you have created the application, add http://localhost:8000/callback to the list of Redirect URIs.
-In the application settings, locate the client ID and client secret and add them to your environment variables as SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET.
-Run the script using the command python3 CreatePlaylist.py
+-Clone the repository.
+
+-Create a virtual environment and activate it.
+
+-Use these links to obtain the Spotify Access tokens for your account:
+
+  spotify_get: https://developer.spotify.com/console/get-current-user/
+  
+  spotify_post: https://developer.spotify.com/console/post-playlists/?user_id=&body=%7B%0A%20%20%22name%22%3A%20%22New%20Playlist%22%2C%0A%20%20%22description%22%3A%20%22Recommended%20Songs%22%2C%0A%20%20%22public%22%3A%20True%0A%7D
+  
+-Fill in these scopes:
+
+<img width="577" alt="Screen Shot 2023-03-23 at 2 03 41 AM" src="https://user-images.githubusercontent.com/115600563/227128122-f0b47453-978e-4bd9-92e1-47ce6adb84e8.png">
+
+-Copy each token and assign it to the respective environmental variable using this command in the terminal:
+
+  export spotify_get={your get access token]
+  
+  export spotify_post={your post access token}
+
+-Run the script using this command:
+
+python3 CreatePlaylist.py
 
 ## How to Use
 When prompted, enter the number of tracks you would like to choose from your recent listening history (up to 10).
